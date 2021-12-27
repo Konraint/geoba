@@ -43,9 +43,9 @@
     background-color: #e6e6e6;
     cursor: pointer;
     margin: 0px 1px 2px 1px; /* top right bottom left */
-    font-size: 38px;;
+    font-size: 44px;
     cursor: pointer;
-    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.2);
+    box-shadow: 0px 0px 0px 8px rgba(234, 234, 234);
   }
   .btn:hover {
     background-color: #ddd;
@@ -65,13 +65,14 @@
   .marker {
     background-image: url('clip.jpg');
     background-size: cover;
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     border-radius: 100%;
     cursor: pointer;
   }
   .mapboxgl-popup {
-    max-width: 200px;
+    max-width: 600px;
+    font-size: 24px;
   }
   .mapboxgl-popup-content {
     text-align: center;
@@ -79,12 +80,23 @@
   }
 
 
+  #arba{
+    max-height:500px;
+    width=auto;
+  }
+
+  #button{
+    max-height:500px;
+    width=auto;
+  }
+
 </style>
 
 </head>
 <body>
 
-  <img src='index.png' width=100%>
+  <br>
+  <img src='index.png' id='arba'>
 
 <div id='button'>
 
@@ -97,7 +109,12 @@
   <br>
   <br>
   <br>
-  <button class='btn' onclick="getLocation()">Buscar estación permanente más cercana</button>
+  <button class='btn' onclick="getLocation()"><b>Buscar estación permanente más cercana</b></button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <img src='ransac.png' width=100%>
 </div>
 
 <p id="demo"></p>
@@ -232,7 +249,7 @@ function showPosition(position) {
 
     var datos_estacion_str =
 
-    '<br />' + '<b>Coordenadas actuales de este dispositivo:   </b><br />'+
+    '<br />' + '<b>Coordenadas de tu dispositivo:   </b><br />'+
     lat +' , '+lon+ " <br /><br />" +
 
     '<b>Estación permanente más cercana:  </b><br />' +
@@ -256,7 +273,7 @@ function showPosition(position) {
     // }
 
     datos_estacion_str += "<br /><br />" +
-    '<b>Verifique el estado de la estación '+estaciones[min_index][0]+' hacienco clic </b>' +
+    '<b>Verificá el estado de la estación '+estaciones[min_index][0]+' hacienco clic </b>' +
     '<a href="https://www.ign.gob.ar/NuestrasActividades/Ramsac/EstacionesPermanentes"> aquí. </a>'
 
 
@@ -375,7 +392,7 @@ function showPosition(position) {
       style: 'mapbox://styles/mapbox/streets-v11',   // streets-v11  navigation-day-v1 light-v10 outdoors-v11
       center: [lon , lat],
 
-      zoom: 11-4*min_val/200
+      zoom: 12-5*min_val/200
     });
 
     // add markers to map
