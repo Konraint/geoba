@@ -270,11 +270,10 @@ function showPosition(position) {
 
     if (min_val < 30) {
       datos_estacion_str += "<br /><br />" +'<b>Tiempo de medición necesario para punto Base:</b>  60 min.';
-    } else if (time < 20) {
-      greeting = "Good day";
+    } else if (min_val < 80) {
+      datos_estacion_str += "<br /><br />" +'<b>Tiempo de medición necesario para punto Base:</b>  120 min.';
     } else {
-      greeting = "Good evening";
-    }
+      datos_estacion_str += "<br /><br />" +'<b>Tiempo de medición necesario para punto Base:</b>  180 min.';
 
     datos_estacion_str += "<br /><br />" + '<b>Tiempo de medición necesario para punto Azimuth:</b>  30 min.'
     // if (min_val < 5) {
@@ -401,7 +400,7 @@ function showPosition(position) {
       style: 'mapbox://styles/mapbox/streets-v11',   // streets-v11  navigation-day-v1 light-v10 outdoors-v11
       center: [lon , lat],
 
-      zoom: 13-6*min_val/200
+      zoom: 13-6*min_val/150
     });
 
     // add markers to map
